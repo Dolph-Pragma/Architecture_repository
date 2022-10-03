@@ -1,4 +1,4 @@
-import 'package:repo_counter_example/db/virtual_db.dart';
+import 'package:repo_counter_example/db/database_virtual.dart';
 import 'package:repo_counter_example/models/counter.dart';
 import 'package:repo_counter_example/repositories/counter_interface.dart';
 
