@@ -11,11 +11,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final HomeController _homeController = HomeController();
-
   void _incrementCounter() {
     setState(() {
-      _homeController.addCounter();
+      homeController.addCounter();
     });
   }
 
@@ -32,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'Se actualizara en cuento el repo lea la info',
             ),
-            CounterWidget(_homeController),
+            CounterWidget(homeController),
           ],
         ),
       ),
@@ -54,16 +52,11 @@ class CounterWidget extends StatelessWidget {
     return FutureBuilder(
       future: _homeController.getNumber(),
       builder: (BuildContext context, AsyncSnapshot<Counter> snapshot) {
-        if (snapshot.hasData) {
-          return Text(
-            '${snapshot.data!.number}',
-            style: Theme.of(context).textTheme.headline4,
-          );
-        } else {
-          return const Center(
-            child: Text("Cargando..."),
-          );
-        }
+        final counter = snapshot.data?.number ?? 0;
+        return Text(
+          '$counter',
+          style: Theme.of(context).textTheme.headline4,
+        );
       },
     );
   }

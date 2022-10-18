@@ -3,7 +3,11 @@ import 'package:repo_counter_example/repositories/counter_repository.dart';
 import '../models/counter.dart';
 
 class HomeController {
-  final CounterRepository _counterRepo = CounterRepository(DataBaseVirtual());
+  HomeController(DataBaseVirtual db) {
+    _counterRepo = CounterRepository(db);
+  }
+
+  late CounterRepository _counterRepo;
 
   Future<Counter> getNumber() {
     return _counterRepo.getNumber();
@@ -17,3 +21,5 @@ class HomeController {
     return _counterRepo.clear();
   }
 }
+
+final HomeController homeController = HomeController(DataBaseVirtual());
