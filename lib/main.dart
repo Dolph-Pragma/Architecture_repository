@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Repo Counter',
+      title: 'Repository Counter',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
